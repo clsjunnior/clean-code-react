@@ -37,7 +37,7 @@ module.exports = {
 					{
 						loader: 'sass-loader'
 					}
-				],
+				], 
 				exclude: /node_modules/,
 			}
 		]
