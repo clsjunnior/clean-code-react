@@ -43,9 +43,11 @@ module.exports = {
 		]
 	},
 	devServer: {
-		contentBase: './public', // content base public folder
-		writeToDisk: true, // needed for hot reloading
+		static: './public', // content base public folder
 		historyApiFallback: true, // enable history api fallback so that routing works with browser refresh
+		devMiddleware: {
+      writeToDisk: true, // enable write to disk for webpack dev server
+    },
 	},
 	externals: { // don't bundle the 'react' and 'react-dom' libraries
 		'react': 'React',
