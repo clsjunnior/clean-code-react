@@ -17,8 +17,9 @@ input[type='password'] {
   border: 1px solid $primary-light;
   border-radius: 0.4rem;
   line-height: 40px;
-  padding: 0 10px;
+  padding: 0 0.8rem;
   transition: all 0.3s ease-in-out;
+  width: 100%;
 
   &:focus {
     outline-color: $primary-light;
