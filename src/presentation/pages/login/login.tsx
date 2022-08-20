@@ -1,31 +1,27 @@
 import React from 'react'
 import Styles from './login-styles.scss'
 
-import { Logo } from '@/presentation/components/logo/logo'
+import Footer from '@/presentation/components/footer/footer'
+import LoginHeader from '@/presentation/components/login-header/login-header'
 
 const Login: React.FC = () => {
   return (
     <div className={Styles.login}>
-      <header>
-        <Logo />
-        <h1>
-					Enquete para programadores
-        </h1>
-      </header>
+      <LoginHeader />
       <form action="">
         <h2>Login</h2>
 
-        <input type="email" name='email' placeholder='Informe o seu email' />
-        <input type="password" name='password' placeholder='Informe a sua senha' />
-        <button type="submit" className={Styles.submit}>Entrar</button>
+        <input type="email" name="email" placeholder="Informe o seu email" />
+        <input type="password" name="password" placeholder="Informe a sua senha" />
+        <button type="submit" className={Styles.submit}>
+          Entrar
+        </button>
         <span className={Styles.link}>Criar conta</span>
         <div className={Styles.errorWrap}>
-          <span className={Styles.error}>
-						Usuário ou senha inválidos
-          </span>
+          <span className={Styles.error}>Usuário ou senha inválidos</span>
         </div>
       </form>
-      <footer />
+      <Footer />
     </div>
   )
 }

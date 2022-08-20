@@ -1,134 +1,106 @@
 @import '../../styles/colors.scss';
 
 * {
-	font-family: 'Poppins', sans-serif;
-	font-size: 0.9rem;
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-	background-color: $background;
+  background-color: $background;
 }
 
-input[type="email"],
-input[type="password"]
-{
-	border: 1px solid $primary-light;
-	border-radius: 0.4rem;
-	line-height: 40px;
-	padding: 0 10px;
-	transition: all 0.3s ease-in-out;
+input[type='email'],
+input[type='password'] {
+  border: 1px solid $primary-light;
+  border-radius: 0.4rem;
+  line-height: 40px;
+  padding: 0 10px;
+  transition: all 0.3s ease-in-out;
 
-	&:focus {
-		outline-color: $primary-light;
-	}
+  &:focus {
+    outline-color: $primary-light;
+  }
 }
 
 button {
-	background-color: $secondary;
-	color: $white;
-	border-radius: 0.5rem;
-	font-size: 1rem;
-	border: none;
-	height: 40px;
-	min-width: 150px;
-	transition: all 0.3s ease-in-out;
-	cursor: pointer;
+  background-color: $secondary;
+  color: $white;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  border: none;
+  height: 40px;
+  min-width: 150px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
 
-	&:hover{
-		opacity: 0.8;
-	}
+  &:hover {
+    opacity: 0.8;
+  }
 }
 
-.login{
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	height: 100vh;
-	
-	header{
-		width: 100%;
-		min-height: 48px;
-		background-color: $primary;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
 
-		svg {
-			width: 6rem;
-			height: 6rem;
-			margin-top: 32px;
-		}
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
 
-		h1 {
-			color: $white;
-			font-size: 1.8rem;
-			font-weight: bold;
-			margin: 16px 0 32px;
-		}
-	}
+    width: 100%;
+    max-width: 450px;
+    align-self: center;
 
-	form{
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 0.8rem;
+    padding: 3rem;
+    background-color: $white;
+    border-radius: 1rem;
 
-		width: 100%;
-		max-width: 450px;
-		align-self: center;
+    h2 {
+      color: $secondary;
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
 
-		padding: 3rem;
-		background-color: $white;
-		border-radius: 1rem;
+    .submit {
+      margin-top: 1rem;
+      height: 48px;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
 
-		h2 {
-			color: $secondary;
-			font-size: 1.3rem;
-			font-weight: bold;
-			margin-bottom: 1rem;
-		}
+    .link {
+      color: $primary;
+      font-size: 0.8rem;
+      text-align: center;
+      transition: all 0.3s ease-in-out;
 
-		.submit {
-			margin-top: 1rem;
-			height: 48px;
-			text-transform: uppercase;
-			font-weight: bold;
-		}
+      &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
 
-		.link {
-			color: $primary;
-			font-size: 0.8rem;
-			text-align: center;
-			transition: all 0.3s ease-in-out;
+    input,
+    button {
+      width: 100%;
+    }
 
-			&:hover {
-				text-decoration: underline;
-				cursor: pointer;
-			}
-		}
+    .errorWrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
-		input, button{
-			width: 100%;
-		}
-
-		.errorWrap{
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-
-			.error{
-				margin-top: 1rem;
-				color: $secondary;
-			}
-		}
-	}
-
-	footer{
-		width: 100%;
-		min-height: 42px;
-		background-color: $primary;
-	}
+      .error {
+        margin-top: 1rem;
+        color: $secondary;
+      }
+    }
+  }
 }
