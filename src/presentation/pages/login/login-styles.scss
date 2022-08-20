@@ -92,16 +92,5 @@ button {
     button {
       width: 100%;
     }
-
-    .errorWrap {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
-      .error {
-        margin-top: 1rem;
-        color: $secondary;
-      }
-    }
   }
 }
