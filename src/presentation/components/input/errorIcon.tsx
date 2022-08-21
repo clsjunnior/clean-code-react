@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const ErrorIcon = (): React.ReactElement => {
+export const ErrorIcon = (): React.ReactElement<HTMLElement> => {
   return (
     <svg
       viewBox="64 64 896 896"
