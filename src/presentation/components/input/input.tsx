@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { ErrorIcon } from './errorIcon'
+import { SuccessIcon } from './successIcon'
 
 import Styles from './input-styles.scss'
 import Context from '@/presentation/contexts/form/form-context'
@@ -25,11 +26,11 @@ const Input: React.FC<InputProps> = (props: InputProps) => {
   }
 
   const getStatus = (): React.ReactElement => {
-    return <ErrorIcon />
+    return error ? <ErrorIcon /> : <SuccessIcon />
   }
 
   const getTitle = (): string => {
-    return error
+    return error || 'Tudo certo'
   }
 
   return (
