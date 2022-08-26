@@ -35,6 +35,12 @@
 			{
 				"SwitchCase": 1
 			}
+		],
+		"@typescript-eslint/no-misused-promises": [
+			"error",
+			{
+				"checksVoidReturn": false
+			}
 		]
 	}
 }
