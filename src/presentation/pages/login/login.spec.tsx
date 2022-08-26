@@ -4,6 +4,7 @@ import { faker } from '@faker-js/faker'
 
 import Login from './login'
 import { ErrorIcon } from '@/presentation/components/input/errorIcon'
+import { SuccessIcon } from '@/presentation/components/input/successIcon'
 import { ValidationStub } from '@/presentation/test'
 
 type SutTypes = {
@@ -46,22 +47,33 @@ describe('Login component', () => {
   })
 
   test('Should show email error if Validation fails', () => {
-    const { sut, validationStub: validationSpy } = makeSut()
+    const { sut, validationStub } = makeSut()
     const emailInput = sut.getByTestId('email')
     fireEvent.input(emailInput, { target: { value: faker.internet.email() } })
     const emailStatus = sut.getByTestId('email-status') as HTMLSpanElement
-    expect(emailStatus.title).toBe(validationSpy.errorMessage)
+    expect(emailStatus.title).toBe(validationStub.errorMessage)
     const { container } = render(<ErrorIcon />)
     expect(emailStatus.innerHTML).toBe(container.querySelector('svg').outerHTML)
   })
 
   test('Should show password error if Validation fails', () => {
-    const { sut, validationStub: validationSpy } = makeSut()
+    const { sut, validationStub } = makeSut()
     const passwordInput = sut.getByTestId('password')
     fireEvent.input(passwordInput, { target: { value: faker.internet.email() } })
     const emailStatus = sut.getByTestId('password-status') as HTMLSpanElement
-    expect(emailStatus.title).toBe(validationSpy.errorMessage)
+    expect(emailStatus.title).toBe(validationStub.errorMessage)
     const { container } = render(<ErrorIcon />)
+    expect(emailStatus.innerHTML).toBe(container.querySelector('svg').outerHTML)
+  })
+
+  test('Should show valid email state if Validation succeeds', () => {
+    const { sut, validationStub } = makeSut()
+    validationStub.errorMessage = null
+    const emailInput = sut.getByTestId('email')
+    fireEvent.input(emailInput, { target: { value: faker.internet.email() } })
+    const emailStatus = sut.getByTestId('email-status') as HTMLSpanElement
+    expect(emailStatus.title).toBe('Tudo certo')
+    const { container } = render(<SuccessIcon />)
     expect(emailStatus.innerHTML).toBe(container.querySelector('svg').outerHTML)
   })
 })
