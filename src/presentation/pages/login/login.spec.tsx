@@ -59,7 +59,7 @@ describe('Login component', () => {
   test('Should show password error if Validation fails', () => {
     const { sut, validationStub } = makeSut()
     const passwordInput = sut.getByTestId('password')
-    fireEvent.input(passwordInput, { target: { value: faker.internet.email() } })
+    fireEvent.input(passwordInput, { target: { value: faker.internet.password() } })
     const emailStatus = sut.getByTestId('password-status') as HTMLSpanElement
     expect(emailStatus.title).toBe(validationStub.errorMessage)
     const { container } = render(<ErrorIcon />)
@@ -75,5 +75,16 @@ describe('Login component', () => {
     expect(emailStatus.title).toBe('Tudo certo')
     const { container } = render(<SuccessIcon />)
     expect(emailStatus.innerHTML).toBe(container.querySelector('svg').outerHTML)
+  })
+
+  test('Should show valid password state if Validation succeeds', () => {
+    const { sut, validationStub } = makeSut()
+    validationStub.errorMessage = null
+    const passwordInput = sut.getByTestId('password')
+    fireEvent.input(passwordInput, { target: { value: faker.internet.email() } })
+    const passwordStatus = sut.getByTestId('password-status') as HTMLSpanElement
+    expect(passwordStatus.title).toBe('Tudo certo')
+    const { container } = render(<SuccessIcon />)
+    expect(passwordStatus.innerHTML).toBe(container.querySelector('svg').outerHTML)
   })
 })
