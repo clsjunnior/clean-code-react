@@ -4,6 +4,7 @@ import Styles from './login-styles.scss'
 import { Footer, LoginHeader, Input, FormStatus } from '@/presentation/components'
 import Context from '@/presentation/contexts/form/form-context'
 import { Validation } from '@/presentation/protocols/validation'
+import { stat } from 'fs'
 
 type Props = {
   validation?: Validation
@@ -35,7 +36,12 @@ const Login: React.FC<Props> = ({ validation }: Props) => {
           <h2>Login</h2>
           <Input type="email" name="email" placeholder="Informe o seu email" />
           <Input type="password" name="password" placeholder="Informe a sua senha" />
-          <button data-testid="submit" disabled type="submit" className={Styles.submit}>
+          <button
+            data-testid="submit"
+            disabled={!!state.emailError || !!state.passwordError}
+            type="submit"
+            className={Styles.submit}
+          >
             Entrar
           </button>
           <span className={Styles.link}>Criar conta</span>
