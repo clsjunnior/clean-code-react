@@ -54,6 +54,14 @@ describe('Login component', () => {
     expect(validationSpy.fieldValue).toEqual(email)
   })
 
+  test('Should show email error if Validation fails', () => {
+    const { sut, validationSpy } = makeSut()
+    const emailInput = sut.getByTestId('email')
+    fireEvent.input(emailInput, { target: { value: faker.internet.email() } })
+    const emailStatus = sut.getByTestId('email-status')
+    expect(emailStatus.title).toBe(validationSpy.errorMessage)
+  })
+
   test('Should call validation with correct password', () => {
     const { sut, validationSpy } = makeSut()
     const passwordInput = sut.getByTestId('password')
@@ -67,7 +75,9 @@ describe('Login component', () => {
     const { sut, validationSpy } = makeSut()
     const emailInput = sut.getByTestId('email')
     fireEvent.input(emailInput, { target: { value: faker.internet.email() } })
-    const emailStatus = sut.getByTestId('email-status')
+    const emailStatus = sut.getByTestId('email-status') as HTMLSpanElement
     expect(emailStatus.title).toBe(validationSpy.errorMessage)
+    const { container } = render(<ErrorIcon />)
+    expect(emailStatus.innerHTML).toBe(container.querySelector('svg').outerHTML)
   })
 })
